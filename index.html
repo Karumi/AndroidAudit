@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>AndroidAudit by Karumi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">AndroidAudit</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/Karumi/AndroidAudit" class="btn">View on GitHub</a>
+      <a href="https://github.com/Karumi/AndroidAudit/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Karumi/AndroidAudit/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p><strong>Your Android app as a crime scene!</strong></p>
+
+<p>Technical audits of iOS and Android applications have become an integral part of our daily job here at Karumi. Even though it can look easy, there are quite a few implementation details to review when performing such audit. In this blog post we are going to review what we believe are the most important things to check, separated by technical area. </p>
+
+<p><strong>Version Control System:</strong></p>
+
+<p>Whether the engineers are using version control, which system and using what process tells us a lot of things about the software development process. </p>
+
+<ul>
+<li><p>Do you have a properly configured *ignore file so IDE metadata files and other extraneous elements are not under version control?</p></li>
+<li><p>Are third party libraries versioned in the repository rather than configured as an external dependency?</p></li>
+<li><p>Do you use sufficiently concise and descriptive commit messages?</p></li>
+<li><p>Is the size of the commits reasonable?</p></li>
+<li><p>Are all the files in a commit related to the same issue or feature?</p></li>
+<li>
+<p>Are you using branches following any branching scheme like "feature branch" or “git-flow”?</p>
+
+<ul>
+<li>Are these branch names descriptive enough?</li>
+</ul>
+</li>
+<li>
+<p>Are you using the pull request/code review system before merging the code into master?</p>
+
+<ul>
+<li><p>Do you have any guidelines regarding what to look for when reviewing a PR?</p></li>
+<li><p>How many comments on average for every PR?</p></li>
+<li><p>How many people review each PR?</p></li>
+<li><p>How many +1 do you need before merging?</p></li>
+<li><p>Who is responsible for closing the branch?</p></li>
+</ul>
+</li>
+<li><p>Are you using release branches to prepare every release?</p></li>
+<li><p>How long are your staging process open?</p></li>
+<li><p>How many fixes do you introduce into your release candidate before to release it?</p></li>
+<li><p>Are you able to checkout the exact code used to build any of the published versions of your app?</p></li>
+<li><p>How many hotfixes have you released in the past year?</p></li>
+<li><p>Are you squashing the commits in a branch before merging it into the master/develop/ branch?</p></li>
+<li><p>Is the master/develop branch ready to be released at any time?</p></li>
+</ul>
+
+<p><strong>Build Tools:</strong> </p>
+
+<p>Being able to reproduce the build process on every developer machine and any other external system as continuous integration is key.</p>
+
+<ul>
+<li><p>How many libraries are being used in the project?</p></li>
+<li><p>Is the project splitted into different modules?</p></li>
+<li><p>Do they consume their dependencies from Maven or Gradle or are they using local jars?</p></li>
+<li><p>Is the project dangerously approaching to the dex method count limit? Is it already beyond that point?</p></li>
+<li><p>Are you using libraries you project does not need?</p></li>
+<li><p>Is the project using multidex?</p></li>
+<li><p>Are the external dependencies up to date?</p></li>
+<li><p>Are you respecting every third party library license?</p></li>
+<li><p>Is the project using any deprecated or abandoned/unmaintained third party library?</p></li>
+<li><p>Is the minimum SDK the one required by the product description?</p></li>
+<li><p>Is the target SDK up to date?</p></li>
+<li><p>Is proguard, or any other obfuscation tool, enabled and properly configured?</p></li>
+<li><p>Are the keystore credentials and Google Play Store credentials stored in a secure place?</p></li>
+<li><p>Is the application keystore and the credential stored in a secure place?</p></li>
+<li><p>Does the application use build types properly?</p></li>
+<li><p>Does the application use flavors properly?</p></li>
+<li><p>Is the release build type properly configured?</p></li>
+<li><p>Is the backup option enabled?</p></li>
+<li><p>Is lint enabled and successfully passing?</p></li>
+<li><p>Is there any static analysis tool configured and passing?</p></li>
+<li><p>Is there any checkstyle configured and passing?</p></li>
+<li><p>Is the application id and version name/code configured properly?</p></li>
+<li><p>Are you using any structure or strategy for versioning the id?</p></li>
+<li><p>Is there any continous integration tool configured?</p></li>
+<li><p>Is the release process automated?</p></li>
+</ul>
+
+<p><strong>Android Resources Usage:</strong></p>
+
+<p>There is a wide range of devices in the Android world, each one with their own screen size, capabilities, etc. You need to be extra careful and leverage some of the Android tools to provide the best possible experience to your user regardless of their device.</p>
+
+<ul>
+<li><p>Are there any missing resources for densities, flavors or build types?</p></li>
+<li><p>Does the application support all the densities required by the product description?</p></li>
+<li><p>Does the application use drawable/mipmap, fonts or vectorial resources?</p></li>
+<li><p>Are there any missing translations?</p></li>
+<li><p>Is the translation process automated?</p></li>
+<li><p>What is the default language for translations?</p></li>
+<li><p>Does the application use custom fonts?</p></li>
+<li><p>Does the application use configuration values inside the String resources file?</p></li>
+<li><p>Is the naming convention used to assign names to the resources homogeneous?</p></li>
+<li><p>Are configuration parameters related to the device hardware configured properly?</p></li>
+<li><p>Are you supporting tablets?</p></li>
+</ul>
+
+<p><strong>Android Layout Usage:</strong></p>
+
+<p>As we have said before, there is a wide range of Android devices in the world, each one with it own screen size and density. Using Android Layouts correctly is key</p>
+
+<ul>
+<li><p>Does the number of layers in the application layouts produce performance issues?</p></li>
+<li><p>Do you use themes and styles?</p></li>
+<li><p>Do your reuse layouts using the "include" tag?</p></li>
+<li><p>Do you use the correct view group type in the layouts implementation?</p></li>
+<li><p>Are the layouts configured for different screen sizes?</p></li>
+<li><p>Is the naming convention used to assign names to the layouts and widgets homogeneous?</p></li>
+<li><p>Are the lists implemented using ListView or RecyclerView widgets?</p></li>
+<li><p>Is the Android Support Library properlyused?</p></li>
+</ul>
+
+<p><strong>Permissions Usage:</strong></p>
+
+<p>Asking for the right permissions builds trust among your users and can help your app to walk the extra mile and seamlessly integrate with other services to deliver a delightful; experience to your users.</p>
+
+<ul>
+<li><p>Are all the requested permissions really needed?</p></li>
+<li><p>Is there any permission used maliciously?</p></li>
+<li><p>Is there any permission missing?</p></li>
+<li><p>Is the target SDK used greater than 23 and the "dangerous permissions" requested using the compatibility permissions system?</p></li>
+<li><p>Are the permission requested when they are going to be used?</p></li>
+<li><p>Is there any feedback shown to the user explaining why the permission is needed?</p></li>
+</ul>
+
+<p><strong>Security Issues:</strong></p>
+
+<p>As developers we need to be conscious about our app security, we don’t want our user’s data to be leaked or their sessions stolen</p>
+
+<ul>
+<li><p>Is the HTTP client configured to use HTTPS?</p></li>
+<li><p>Is the HTTP client configured to use certificate pinning and messages authentication with HMAC?</p></li>
+<li><p>Is the application persisting user sensitive information? Where?</p></li>
+<li><p>Is the application persisting information out of the internal storage system?</p></li>
+<li><p>Is the application logging traces when running a release build?</p></li>
+<li><p>Is the application code obfuscated?</p></li>
+<li><p>Is the application exposing any Android content provider, receiver or service to other applications?</p></li>
+<li><p>Is the application "debuggable" value disabled in the release build?</p></li>
+</ul>
+
+<p><strong>Push Notifications:</strong></p>
+
+<p>Push is a great mechanism to keep our users informed about relevant content at any time, but it is a more complex problem that it looks at first glance</p>
+
+<ul>
+<li><p>Is the application using a third party library to implement the push notifications system?</p></li>
+<li><p>Is the GCM system used to send information to the application inside the push notifications or just to show messages to the user?</p></li>
+<li><p>What is the application behaviour when a push notification is received?</p></li>
+<li><p>What is the application behaviour if the info associated to the push notification is not the one expected?</p></li>
+<li><p>Are the notifications shown to the user using the compatibility API?</p></li>
+</ul>
+
+<p><strong>Performance:</strong></p>
+
+<p>Performance is critical. Nobody wants to use a crappy, sluggish app in their 400-600$ device. Performance is $</p>
+
+<ul>
+<li><p>Does the application have any memory leak?</p></li>
+<li><p>Is any memory analyzer like "LeakCanary" configured in the development build?</p></li>
+<li><p>Is the Android Strict Mode enabled and configured in the development build?</p></li>
+<li><p>What is the application threading usage? Are you using async tasks, intent services or any other third party libraries?</p></li>
+<li><p>Is the number of background threads causing performance issues?</p></li>
+<li><p>Do you use any scheduler policy or just create threads on demand?</p></li>
+<li><p>Do you keep in mind the Android Doze Mode?</p></li>
+<li><p>Is the application listening to events related to the network state or any repetitive event from the operating system?</p></li>
+<li><p>Is the main thread used to perform tasks only related to the user interface code?</p></li>
+<li><p>Is the application using any caching policy?</p></li>
+<li><p>Is the HTTP client configured to use a timeout?</p></li>
+<li><p>Is the HTTP client configured to use GZIP?</p></li>
+<li><p>Is the application UI running at 60 frames per second?</p></li>
+<li><p>Is there any custom view implemented allocating a lot of memory or executing expensive tasks in the UI thread?</p></li>
+<li><p>Are you testing your app on lower-end devices?</p></li>
+<li><p>Is the recycler views scrolling sluggish? </p></li>
+<li><p>Is the images handling implemented using any third party library or do you have your custom solution?</p></li>
+<li><p>Are the images consumed resized to the screen size or downloading the one associated to the device screen?</p></li>
+<li><p>Is the memory usage reasonable?</p></li>
+<li><p>Are they using using the java "static" modifier properly?</p></li>
+<li><p>Is any task related to images management handling more than one image at the same time?</p></li>
+<li><p>Is the stats tracking system working on a background thread configured with the correct priority?</p></li>
+<li><p>Is the code optimized in the release build?</p></li>
+</ul>
+
+<p><strong>Java Package Structure:</strong></p>
+
+<p>A good packaging structure will make our code more scalable</p>
+
+<ul>
+<li><p>Are packages used to split the code by features or by concepts? E.g. Login vs User</p></li>
+<li><p>Are the java visibility modifiers used to hide implementation details inside packages?</p></li>
+<li><p>Are packages out of the root package?</p></li>
+<li><p>Is the tests folder following the same packages structure implemented in the source folder?</p></li>
+<li><p>Are the features organized using the same packages structure?</p></li>
+<li><p>Is there any class out of the correct package?</p></li>
+<li><p>Are the naming conventions followed so the packages are homogeneously named?</p></li>
+<li><p>Is the root package name related to the company name?</p></li>
+</ul>
+
+<p><strong>Codestyle:</strong></p>
+
+<p>A consistent code base in terms of styling helps our engineers to read code in an easier way. An engineer is suppose to read MUCH more code than she/he writes so this is an important concept</p>
+
+<ul>
+<li><p>Is the codestyle homogeneous?</p></li>
+<li><p>Do you use hungarian notation?</p></li>
+<li><p>Is there any checkstyle tool configured and passing?</p></li>
+<li><p>Does the code follow the Java codestyle?</p></li>
+<li><p>Do you use tabs or spaces?</p></li>
+<li><p>Are the classes correctly named?</p></li>
+<li><p>Do you use "I" as interfaces prefix or “Impl” as implementation suffixes?</p></li>
+<li><p>Do you use the correct names for variables?</p></li>
+<li><p>Do you use the correct names for fields?</p></li>
+<li><p>Do you use the correct names for methods?</p></li>
+<li><p>Are the attributes and method visibility modifiers used properly?</p></li>
+<li><p>Is the code in English?</p></li>
+<li><p>Do you use javadoc?</p></li>
+<li><p>Do you write code comments?</p></li>
+<li><p>Do you use constants or enums to avoid duplicated literals?</p></li>
+</ul>
+
+<p><strong>Offline Implementation:</strong></p>
+
+<p>Providing a good offline experience is a differentiating factor for our applications.</p>
+
+<ul>
+<li><p>Is the application usable when there is no internet connection?</p></li>
+<li><p>What is the application behaviour when the network connection is slow?</p></li>
+<li><p>What is the application behaviour when a request has been cut due to a network failure?</p></li>
+<li><p>Are the application data modifications synchronized with the application backend once the connection has been recovered?</p></li>
+<li><p>Is there any timeout configured related to the network connections?</p></li>
+<li><p>Is there any HTTP caching policy configured?</p></li>
+<li><p>Is the user session renegotiated automatically?</p></li>
+</ul>
+
+<p><strong>Architecture:</strong></p>
+
+<p>The application architecture from the code point of view is one of the parts of an audit that gives us more insight about the application. During the application architecture review we will be focused in concepts related to the S.O.L.I.D and Clean Code principles</p>
+
+<p><strong>Presentation Layer Implementation:</strong></p>
+
+<ul>
+<li><p>Is any pattern related to GUI implementation used in the application? Model View Presenter or Model View ViewModel could be two of the most commonly used patterns to develop applications. Is it implemented properly?</p></li>
+<li><p>Is the presentation layer implementation coupled to the view implementation?</p></li>
+<li><p>Is the view implementation coupled to the model implementation?</p></li>
+<li><p>Does the presentation layer implement business requirements?</p></li>
+<li><p>Does the view implementation use the Android SDK tools properly?</p></li>
+<li><p>Does you use third party libraries to simplify the view implementation?</p></li>
+<li><p>Are the different features implemented in different activities or fragments?</p></li>
+<li><p>Is the common UI behaviour centralized?</p></li>
+<li><p>Do you use custom views to reuse UI code?</p></li>
+</ul>
+
+<p><strong>Domain Implementation:</strong></p>
+
+<ul>
+<li><p>Is there any domain layer or is all the business logic implemented inside the presentation layer?</p></li>
+<li><p>Are the domain rules and different application requirements expressed inside the main business logic entities?</p></li>
+<li><p>Is the domain layer implemented using the object oriented principles?</p></li>
+<li><p>Is the domain layer coupled to the Android SDK or any third party library?</p></li>
+<li><p>Is the domain layer coupled to the presentation layer?</p></li>
+<li><p>Is the domain model anemic?</p></li>
+<li><p>Do you use rich domain models?</p></li>
+<li><p>Is the code based on low coupled and high cohesive components?</p></li>
+<li><p>Is the error handling implemented using exceptions or any other error mechanism?</p></li>
+<li><p>Is the data mapped between different layers?</p></li>
+<li><p>Are the external components design (like the database schema or the json parsing) influencing the domain model design?</p></li>
+<li><p>Are the developers abusing inheritance?</p></li>
+<li><p>Is the code duplicated?</p></li>
+<li><p>Is there any dependency injection library or service locator configured?</p></li>
+<li><p>Is the class/method complexity too high?</p></li>
+</ul>
+
+<p><strong>API Client Implementation:</strong></p>
+
+<ul>
+<li><p>Is the API client implementation coupled to the Android SDK.</p></li>
+<li><p>Is the API client leaking implementation details related to the HTTP client or the library used to implement the networking layer?</p></li>
+<li><p>Is the API client sending the correct headers?</p></li>
+<li><p>What is the API client behaviour based on different HTTP responses?</p></li>
+<li><p>Is the API client implementing authentication mechanisms?</p></li>
+<li><p>Is the renew session process properly implemented?</p></li>
+<li><p>Does the JSON serializer support obfuscation?</p></li>
+<li><p>Is the API client implementation segregated in different API clients?</p></li>
+</ul>
+
+<p><strong>Storage Implementation:</strong></p>
+
+<ul>
+<li><p>Where is the information stored?</p></li>
+<li><p>Are you reading/writing data from/in the storage using transactions?</p></li>
+<li><p>Is the storage saving user sensitive information securely?</p></li>
+<li><p>Is the storage layer using any third party libraries?</p></li>
+<li><p>Is the storage layer leaking implementation details?</p></li>
+<li><p>Is the storage tables/schemas properly modeled?</p></li>
+<li><p>Are the queries sent to the storage optimized?</p></li>
+<li><p>Are the Android SDK persistence APIs used to store the data in the correct place? Data to the database, preferences or small data to the Shared Preferences and files into disk?</p></li>
+</ul>
+
+<p><strong>Testability:</strong></p>
+
+<ul>
+<li><p>Does the application have tests?</p></li>
+<li><p>Is the application testable?</p></li>
+<li><p>Is the application coverage based on different (unit/integration/end-to-end) tests?</p></li>
+<li><p>Are the tests correctly named?</p></li>
+<li><p>Are the tests properly scoped?</p></li>
+<li><p>Is there overspecification in the tests?</p></li>
+<li><p>Is the execution time reasonable?</p></li>
+<li><p>Is the code coverage too low?</p></li>
+<li><p>Are there any ignored tests?</p></li>
+<li><p>Are there any flaky tests?</p></li>
+<li><p>Do you use the up to date testing frameworks?</p></li>
+<li><p>Are there any tests without asserts?</p></li>
+<li><p>Are tests written by the same developers implementing the production code?</p></li>
+<li><p>Do you have a manual QA team?</p></li>
+<li><p>Do you have a QA team automatizing part of the tests?</p></li>
+<li><p>Do you have any continuous integration system?</p></li>
+<li><p>Do you use builders, factories or mothers to reduce the effort needed to create some entities that are just needed for tests?</p></li>
+<li><p>Are the tests assertions properly written?</p></li>
+<li><p>Do you perform more than one logic assertion per test?</p></li>
+<li><p>Do you have different test suites related to the same project?</p></li>
+<li><p>Do you use different testing approaches to test different parts of the application?</p></li>
+<li><p>Do you use any monkeyrunner?</p></li>
+<li><p>Do you follow any TDD or BDD methodologies?</p></li>
+<li><p>Do you use java to write the test cases?</p></li>
+</ul>
+
+<p>Based on this list related to different topics we can assert the application quality. There are other points that we also review but this list contains the most important ones. Are you giving the correct answers to all this questions?</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Karumi/AndroidAudit">AndroidAudit</a> is maintained by <a href="https://github.com/Karumi">Karumi</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
