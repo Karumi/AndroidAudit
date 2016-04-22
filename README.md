@@ -18,7 +18,7 @@ Whether the engineers are using version control, which system and using what pro
 
 * Are you using branches following any branching scheme like "feature branch" or “git-flow”? 
 
-    * Are these branch names descriptive enough?
+* Are these branch names descriptive enough?
 
 * Are you using the pull request/code review system before merging the code into master?
 
