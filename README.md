@@ -198,7 +198,7 @@ Push is a great mechanism to keep our users informed about relevant content at a
 
 **Performance:**
 
-Performance is critical. Nobody wants to use a crappy, sluggish app in their 400-600$ device. Performance is $
+Performance is critical. Nobody wants to use a crappy, sluggish app in their 400-600$ device. Performance is $.
 
 * Does the application have any memory leak?
 
@@ -246,7 +246,7 @@ Performance is critical. Nobody wants to use a crappy, sluggish app in their 400
 
 * Is the code optimized in the release build?
 
-**Java Package Structure:**
+**Java Packages Structure:**
 
 A good packaging structure will make our code more scalable
 
@@ -320,7 +320,7 @@ Providing a good offline experience is a differentiating factor for our applicat
 
 **Architecture:**
 
-The application architecture from the code point of view is one of the parts of an audit that gives us more insight about the application. During the application architecture review we will be focused in concepts related to the S.O.L.I.D and Clean Code principles
+The application architecture from the code point of view is one of the parts of an audit that gives us more insight about the application. During the application architecture review we will be focused in concepts related to the S.O.L.I.D and Clean Code principles.
 
 **Presentation Layer Implementation:**
 
@@ -461,4 +461,6 @@ The application architecture from the code point of view is one of the parts of 
 * Do you use java to write the test cases?
 
 Based on this list related to different topics we can assert the application quality. There are other points that we also review but this list contains the most important ones. Are you giving the correct answers to all this questions?
+
+***By Pedro Vicente Gómez Sánchez.***
 
