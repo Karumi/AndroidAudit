@@ -1,6 +1,6 @@
 **Your Android app as a crime scene!**
 
-Technical audits of iOS and Android applications have become an integral part of our daily job here at Karumi. Even though it can look easy, there are quite a few implementation details to review when performing such audit. In this blog post we are going to review what we believe are the most important things to check, separated by technical area. 
+Technical audits of iOS and Android applications have become an integral part of our daily job here at Karumi. Even though it can look easy, there are quite a few implementation details to review when performing such audit. In this document we are going to review what we believe are the most important things to check, separated by technical area. 
 
 **Version Control System:**
 
