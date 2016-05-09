@@ -1,130 +1,253 @@
-**Your Android app as a crime scene!**
+**Your Android app as a crime scene! 假设你的Android app是一个犯罪现场！**
 
 Technical audits of iOS and Android applications have become an integral part of our daily job here at Karumi. Even though it can look easy, there are quite a few implementation details to review when performing such audit. In this document we are going to review what we believe are the most important things to check, separated by technical area. 
 
-**Version Control System:**
+在Karumi，iOS和Android应用的技术审核已经成为日常工作必不可少的一部分。这项工作看起来容易，然而在实际进行审核的时候，我们会发现有不少实现细节要注意。我们来回顾一下这个文档里面我们认为最重要的审核条目。这些审核条目按照技术方向被分成几种不同类别。
+
+**Version Control System: 版本控制系统：**
+
+[术语参考]https://github.com/progit/progit2-zh/blob/master/TRANSLATION_NOTES.asc)
 
 Whether the engineers are using version control, which system and using what process tells us a lot of things about the software development process. 
 
+工程师是否使用版本控制，使用哪种系统，通过哪种过程来向我们呈现软件开发过程。
+
+
 * Do you have a properly configured *ignore file so IDE metadata files and other extraneous elements are not under version control?
+
+* 你有没有一个正确设置的*ignore忽略文件，使得IDE的元文件和多余的东西不出现在版本控制系统中？
 
 * Are third party libraries versioned in the repository rather than configured as an external dependency?
 
+* 第三方库文件是不是通过版本控制系统放到同一个仓库中，而不是被设置成一个外部依赖？
+
 * Do you use sufficiently concise and descriptive commit messages?
+
+* 你有没有撰写足够准确而且描述清晰的提交信息？
 
 * Is the size of the commits reasonable?
 
+* 提交的大小是否合理？
+
 * Are all the files in a commit related to the same issue or feature?
+
+* 同一个提交的所有文件是否都是和同一个问题或者特性相关连？
 
 * Are you using branches following any branching scheme like "feature branch" or “git-flow”? 
 
+* 你在使用分支时有没有使用”特性分支“或者”git-flow”这样的分支策略？
+
 * Are these branch names descriptive enough?
+
+* 分支命名是否足够描述清晰？
 
 * Are you using the pull request/code review system before merging the code into master?
 
+* 是否在合并到主分支之前使用拉取请求(pull request)或者代码审核(code review)系统？
+
     * Do you have any guidelines regarding what to look for when reviewing a PR?
+    
+    * 审核拉取请求(pull request)的时候，有没有相关可以参考的参考规则？
 
     * How many comments on average for every PR?
+    
+    * 每个PR平均有多少评论？
 
     * How many people review each PR?
+    
+    * 每个PR有多少人审核？
 
     * How many +1 do you need before merging?
+    
+    * 合并PR需要达到多少个同意？
 
     * Who is responsible for closing the branch?
+    
+    * 谁来负责关闭被合并的分支？
 
 * Are you using release branches to prepare every release?
 
+* 有没有用发布分支(release branch)来准备每次版本发布？
+
 * How long are your staging process open?
+
+* 测试过程持续多久？
 
 * How many fixes do you introduce into your release candidate before to release it?
 
+* 正式发布之前需要引进多少个问题修复到发布候选版本中？
+
 * Are you able to checkout the exact code used to build any of the published versions of your app?
+
+* 能否签出和用于构建线上应用的完全一样的代码？
 
 * How many hotfixes have you released in the past year?
 
+* 去年你一共发布了多少个紧急修复(hotfixes)？
+
 * Are you squashing the commits in a branch before merging it into the master/develop/ branch?
+
+* 合并分支到主分支或者开发分支之前你是否会压缩提交？
 
 * Is the master/develop branch ready to be released at any time?
 
-**Build Tools:** 
+* 主分支或者开发分支是否随时可以发布？
+
+**Build Tools:构建工具：** 
 
 Being able to reproduce the build process on every developer machine and any other external system as continuous integration is key.
 
+能够在任何开发者机器，任何像持续集成系统这样的外部系统上复制构建过程非常重要。
+
 * How many libraries are being used in the project?
 
-* Is the project splitted into different modules?
+* 项目使用了多少库？
+
+* Is the project split into different modules?
+
+* 项目是否被分成了多个模块？
 
 * Do they consume their dependencies from Maven or Gradle or are they using local jars?
 
+* 项目模块是否通过Maven或者Gradle来提供依赖还是使用本地Jar文件？
+
 * Is the project dangerously approaching to the dex method count limit? Is it already beyond that point?
+
+* 项目是否接近了dex方法数量的红线？还是已经超过了红线？
 
 * Are you using libraries you project does not need?
 
+* 有没有使用不需要的库？
+
 * Is the project using multidex?
+
+* 有没有使用multidex？
 
 * Are the external dependencies up to date?
 
+* 外部依赖是否保持了最新状态？
+
 * Are you respecting every third party library license?
+
+* 你是否遵守了每个第三方库的授权证明？
 
 * Is the project using any deprecated or abandoned/unmaintained third party library?
 
+* 项目是否使用了任何过时或者被遗弃/停止维护的第三方库？
+
 * Is the minimum SDK the one required by the product description?
+
+* 最低SDK是否是项目描述中所要求的？
 
 * Is the target SDK up to date?
 
+* 目标SDK是否是当前最新？
+
 * Is proguard, or any other obfuscation tool, enabled and properly configured?
+
+* 是否启用并且正确配置了proguard或者任何其他混淆工具？
 
 * Are the keystore credentials and Google Play Store credentials stored in a secure place?
 
+* keystore证书和Google Play Store证书是否被存放在安全的地方？
+
 * Is the application keystore and the credential stored in a secure place?
+
+* 应用证书和签名是否被存放在安全的地方？
 
 * Does the application use build types properly?
 
+* 应用有没有正确使用构建类型？
+
 * Does the application use flavors properly?
+
+* 应用是否正确使用特色类型？
 
 * Is the release build type properly configured?
 
+* 发布构建类型是否正确配置？
+
 * Is the backup option enabled?
+
+* 是否开启了备份选项？
 
 * Is lint enabled and successfully passing?
 
+* lint是否启用而且成功通过？
+
 * Is there any static analysis tool configured and passing?
+
+* 是否配置了静态分析工具而且成功通过？
 
 * Is there any checkstyle configured and passing?
 
+* 是否配置了风格检查而且成功通过
+
 * Is the application id and version name/code configured properly?
+
+* 是否正确配置应用id和版本号，版本编码？
 
 * Are you using any structure or strategy for versioning the id?
 
+* 对于id，你是否使用某种版本结构或者策略？
+
 * Is there any continous integration tool configured?
+
+* 有没有配置持续集成工具？
 
 * Is the release process automated?
 
-**Android Resources Usage:**
+* 发布过程是否自动化？
+
+**Android Resources Usage:Android资源使用：**
 
 There is a wide range of devices in the Android world, each one with their own screen size, capabilities, etc. You need to be extra careful and leverage some of the Android tools to provide the best possible experience to your user regardless of their device.
 
+在Android世界中有很多不同的设备，每种都有不同的屏幕大小，功能等等特征。你需要额外小心还要使用Android工具来根据用户的设备给他们提供最佳的体验。
+
 * Are there any missing resources for densities, flavors or build types?
+
+* 对于各种屏幕密度，特色或者构建类别是否有缺失的资源？
 
 * Does the application support all the densities required by the product description?
 
+* 应用是否支持产品描述要求的所有屏幕密度？
+
 * Does the application use drawable/mipmap, fonts or vectorial resources?
+
+* 应用是否使用位图，字体或者矢量资源？
 
 * Are there any missing translations?
 
+* 是否有缺失的翻译？
+
 * Is the translation process automated?
+
+* 翻译过程是否自动化？
 
 * What is the default language for translations?
 
+* 默认的翻译是什么语言？
+
 * Does the application use custom fonts?
+
+* 应用是否使用自定义字体？
 
 * Does the application use configuration values inside the String resources file?
 
+应用是否使用存放在String资源文件中的配置变量？
+
 * Is the naming convention used to assign names to the resources homogeneous?
+
+变量命名的规则和资源命名的规则是否一致？
 
 * Are configuration parameters related to the device hardware configured properly?
 
+硬件相关的配置参数是否正确设置？
+
 * Are you supporting tablets?
+
+是否支持平板设备？
 
 **Android Layout Usage:**
 
