@@ -6,7 +6,7 @@ Technical audits of iOS and Android applications have become an integral part of
 
 **Version Control System: 版本控制系统：**
 
-[术语参考]https://github.com/progit/progit2-zh/blob/master/TRANSLATION_NOTES.asc)
+[术语参考](https://github.com/progit/progit2-zh/blob/master/TRANSLATION_NOTES.asc)
 
 Whether the engineers are using version control, which system and using what process tells us a lot of things about the software development process. 
 
