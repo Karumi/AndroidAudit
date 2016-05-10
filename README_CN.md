@@ -249,63 +249,113 @@ There is a wide range of devices in the Android world, each one with their own s
 
 是否支持平板设备？
 
-**Android Layout Usage:**
+**Android Layout Usage: Android布局用法：**
 
 As we have said before, there is a wide range of Android devices in the world, each one with it own screen size and density. Using Android Layouts correctly is key
 
+就像我们之前说到的，市面上有很多不同屏幕，不同像素密度的各种Android设备。正确使用Android布局非常重要。
+
 * Does the number of layers in the application layouts produce performance issues?
+
+* 应用布局的层数是否造成了性能问题？
 
 * Do you use themes and styles?
 
+* 是否使用了主题和风格？
+
 * Do your reuse layouts using the "include" tag?
+
+* 是否通过使用“include”标签来复用布局？
 
 * Do you use the correct view group type in the layouts implementation?
 
+* 在布局实现中有没有使用正确的视图组（view group）?
+
 * Are the layouts configured for different screen sizes?
+
+* 布局有没有为不同屏幕大小适配？
 
 * Is the naming convention used to assign names to the layouts and widgets homogeneous?
 
+* 布局和控件命名规则是否一致？
+
 * Are the lists implemented using ListView or RecyclerView widgets?
 
-* Is the Android Support Library properlyused?
+* 实现列表的时候使用的是ListView还是RecyclerView控件？
 
-**Permissions Usage:**
+* Is the Android Support Library properly used?
+
+* 是否正确使用了Android Support库？
+
+**Permissions Usage:权限用法：**
 
 Asking for the right permissions builds trust among your users and can help your app to walk the extra mile and seamlessly integrate with other services to deliver a delightful; experience to your users.
 
+请求正确的权限可以帮助你在用户中建立起信任，也可以让你的应用走的更远，同时可以无缝的和其他服务集成给你的用户带来良好的体验。
+
 * Are all the requested permissions really needed?
+
+* 所有请求的权限是否真的有必要？
 
 * Is there any permission used maliciously?
 
+* 有没有滥用任何权限？
+
 * Is there any permission missing?
+
+* 有没有缺失必要的权限？
 
 * Is the target SDK used greater than 23 and the "dangerous permissions" requested using the compatibility permissions system?
 
+* 目标SDK版本是否高于23？危险权限是否通过兼容权限系统（compatibility permissions system）请求？
+
 * Are the permission requested when they are going to be used?
+
+* 权限被使用时有没有发出请求？
 
 * Is there any feedback shown to the user explaining why the permission is needed?
 
-**Security Issues:**
+* 有没有通过反馈说明需要请求的权限？
+
+**Security Issues:安全问题？**
 
 As developers we need to be conscious about our app security, we don’t want our user’s data to be leaked or their sessions stolen
 
+作为开发者，我们需要意识到应用的安全性，我们不希望用户数据被泄露或者用户会话被劫持。
+
 * Is the HTTP client configured to use HTTPS?
+
+* HTTP客户端是否配置使用HTTPS？
 
 * Is the HTTP client configured to use certificate pinning and messages authentication with HMAC?
 
+* HTTP客户端是否配置使用证书绑定，消息是否使用HMAC验证？
+
 * Is the application persisting user sensitive information? Where?
+
+* 应用是否持久化用户敏感信息？存放在哪里了？
 
 * Is the application persisting information out of the internal storage system?
 
+* 应用是否在内置存储外存储信息？
+
 * Is the application logging traces when running a release build?
+
+* 运行一个发布版时，应用是否记录日志跟踪信息？
 
 * Is the application code obfuscated?
 
+* 应用代码有没有混淆？
+
 * Is the application exposing any Android content provider, receiver or service to other applications?
+
+* 应用是否对外暴露任何content provider, receiver或者service给其他应用？
 
 * Is the application "debuggable" value disabled in the release build?
 
-**Push Notifications:**
+* 发行版中，应用的“debuggable”标志是否被禁用了？
+
+**Push Notifications:推送通知：**
 
 Push is a great mechanism to keep our users informed about relevant content at any time, but it is a more complex problem that it looks at first glance
 
