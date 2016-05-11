@@ -58,7 +58,7 @@ Being able to reproduce the build process on every developer machine and any oth
 
 * Is the project dangerously approaching to the dex method count limit? Is it already beyond that point?
 
-* Are you using libraries you project does not need?
+* Are you using libraries your project does not need?
 
 * Is the project using multidex?
 
@@ -334,7 +334,7 @@ The application architecture from the code point of view is one of the parts of 
 
 * Does the view implementation use the Android SDK tools properly?
 
-* Does you use third party libraries to simplify the view implementation?
+* Do you use third party libraries to simplify the view implementation?
 
 * Are the different features implemented in different activities or fragments?
 
