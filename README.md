@@ -144,7 +144,7 @@ As we have said before, there is a wide range of Android devices in the world, e
 
 * Are the lists implemented using ListView or RecyclerView widgets?
 
-* Is the Android Support Library properlyused?
+* Is the Android Support Library properly used?
 
 **Permissions Usage:**
 
