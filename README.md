@@ -148,7 +148,7 @@ As we have said before, there is a wide range of Android devices in the world, e
 
 **Permissions Usage:**
 
-Asking for the right permissions builds trust among your users and can help your app to walk the extra mile and seamlessly integrate with other services to deliver a delightful; experience to your users.
+Asking for the right permissions builds trust among your users and can help your app to walk the extra mile and seamlessly integrate with other services to deliver a delightful experience to your users.
 
 * Are all the requested permissions really needed?
 
@@ -238,7 +238,7 @@ Performance is critical. Nobody wants to use a crappy, sluggish app in their 400
 
 * Is the memory usage reasonable?
 
-* Are they using using the java "static" modifier properly?
+* Are they using the java "static" modifier properly?
 
 * Is any task related to images management handling more than one image at the same time?
 
@@ -250,7 +250,7 @@ Performance is critical. Nobody wants to use a crappy, sluggish app in their 400
 
 A good packaging structure will make our code more scalable
 
-* Are packages used to split the code by features or by concepts? E.g. Login vs User
+* Are packages used to split the code by features or by concepts? E.g. Login vs User.
 
 * Are the java visibility modifiers used to hide implementation details inside packages?
 
@@ -268,7 +268,7 @@ A good packaging structure will make our code more scalable
 
 **Codestyle:**
 
-A consistent code base in terms of styling helps our engineers to read code in an easier way. An engineer is suppose to read MUCH more code than she/he writes so this is an important concept
+A consistent code base in terms of styling helps our engineers to read code in an easier way. An engineer is suppose to read MUCH more code than she/he writes so this is an important concept.
 
 * Is the codestyle homogeneous?
 
@@ -376,7 +376,7 @@ The application architecture from the code point of view is one of the parts of 
 
 **API Client Implementation:**
 
-* Is the API client implementation coupled to the Android SDK.
+* Is the API client implementation coupled to the Android SDK?
 
 * Is the API client leaking implementation details related to the HTTP client or the library used to implement the networking layer?
 
