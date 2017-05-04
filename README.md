@@ -187,6 +187,20 @@ As developers we need to be conscious about our app security, we don’t want ou
 
 * Is the application "debuggable" value disabled in the release build?
 
+* Is your security provider up to date?
+
+* Are you using SafetyNet?
+
+* Have you got security tests?
+
+* Do you track/block rooted devices?
+
+* Are you signing your app with the v2 signing key?
+
+* Do you restrict your HTTP client to cipher suites that support perfect forward secrecy?
+
+* Are you scanning your app for known vulnerabilities?
+
 **Push Notifications:**
 
 Push is a great mechanism to keep our users informed about relevant content at any time, but it is a more complex problem that it looks at first glance
