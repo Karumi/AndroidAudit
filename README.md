@@ -13,7 +13,7 @@ Whether the engineers are using version control, which system and using what pro
 
 * Do you have a properly configured *ignore file so IDE metadata files and other extraneous elements are not under version control?
 
-* Are third party libraries versioned in the repository rather than configured as an external dependency?
+* Are third party libraries versioned in the internal repository manager (Nexus, Artifactory, etc.) rather than configured as an external dependency?
 
 * Do you use sufficiently concise and descriptive commit messages?
 
@@ -101,7 +101,7 @@ Being able to reproduce the build process on every developer machine and any oth
 
 * Are you using any structure or strategy for versioning the id?
 
-* Is there any continous integration tool configured?
+* Is there any continuous integration tool configured?
 
 * Is the release process automated?
 
