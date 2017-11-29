@@ -101,7 +101,7 @@ Being able to reproduce the build process on every developer machine and any oth
 
 * Are you using any structure or strategy for versioning the id?
 
-* Is there any continous integration tool configured?
+* Is there any continuous integration tool configured?
 
 * Is the release process automated?
 
