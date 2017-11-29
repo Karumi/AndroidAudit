@@ -13,7 +13,7 @@ Whether the engineers are using version control, which system and using what pro
 
 * Do you have a properly configured *ignore file so IDE metadata files and other extraneous elements are not under version control?
 
-* Are third party libraries versioned in the repository rather than configured as an external dependency?
+* Are third party libraries versioned in the internal repository manager (Nexus, Artifactory, etc.) rather than configured as an external dependency?
 
 * Do you use sufficiently concise and descriptive commit messages?
 
