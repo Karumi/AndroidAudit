@@ -1,3 +1,5 @@
+---
+---
 **Seu aplicativo Android como uma cena de crime!**
 
 Auditorias técnicas dos aplicativos iOS e Android tornaram-se uma parte integrante do nosso trabalho diário aqui na Karumi. Mesmo que ela pode parecer fácil, há vários detalhes de implementação para rever ao realizar a auditoria. Neste documento, vamos rever o que nós acreditamos que são as coisas mais importantes para verificar , separados por área técnica. 
