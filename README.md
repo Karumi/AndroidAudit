@@ -1,5 +1,4 @@
 ---
-layout: page
 ---
 * [中文翻译 / Chinese Translation](CN/) by [Zaicheng Qi](https://github.com/vmlinz)
 * [русский перевод / Russian Translation](RU/) by [Artem Kochkin](https://github.com/kolipass) and [maxpolezhaev](https://github.com/maxpolezhaev)
